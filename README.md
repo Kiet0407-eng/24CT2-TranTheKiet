@@ -50,20 +50,20 @@ Sơ đồ dưới đây thể hiện luồng giao tiếp từ Giao diện ngư�
 graph TD
     User((Người dùng)) -- Tương tác --> FE
     
-    subgraph Tầng Giao diện (Frontend)
-        FE[ReactJS App\n(Giao diện Web: Đăng nhập, Đặt hàng...)]
+    subgraph Frontend_Tier [Tầng Giao diện - Frontend]
+        FE[ReactJS App<br/>Giao diện Web: Đăng nhập, Đặt hàng...]
     end
     
-    subgraph Tầng Xử lý (Backend)
-        BE[Node.js & Express\n(Xử lý Logic, Authentication & Routing)]
+    subgraph Backend_Tier [Tầng Xử lý - Backend]
+        BE[Node.js & Express<br/>Xử lý Logic, Authentication & Routing]
     end
     
-    subgraph Tầng Dữ liệu (Database)
-        DB[(MySQL Database\n'nongsan_db')]
+    subgraph Database_Tier [Tầng Dữ liệu - Database]
+        DB[(MySQL Database<br/>nongsan_db)]
     end
 
-    FE -- "Gửi HTTP/API Request\n(fetch dữ liệu từ localhost:5000)" --> BE
-    BE -- "Thực thi truy vấn SQL\n(SELECT, INSERT, UPDATE, DELETE)" --> DB
+    FE -- "Gửi HTTP/API Request<br/>(fetch dữ liệu từ localhost:5000)" --> BE
+    BE -- "Thực thi truy vấn SQL<br/>(SELECT, INSERT, UPDATE, DELETE)" --> DB
     DB -. "Trả kết quả truy vấn" .-> BE
     BE -. "Trả dữ liệu JSON" .-> FE
 ```
